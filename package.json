@@ -1,0 +1,24 @@
+{
+  "name": "customer-portal-markup-for-mfe",
+  "version": "1.0.0",
+  "description": "HTML and CSS markup for the Customer Portal to use as a base in MFEs",
+  "main": "index.html",
+  "scripts": {
+    "clean:assets": "del-cli dist/img && del-cli dist/fonts",
+    "clean:styles": "del-cli dist/css",
+    "clean:html": "del-cli dist/*html",
+    "clean": "del-cli dist",
+    "copy:assets": "npm run clean:assets && cpy ./img ../dist --cwd=_src && cpy ./fonts ../dist --cwd=_src",
+    "build:styles": "npm run clean:styles && lessc _src/styles/customer-portal-shell.less dist/css/customer-portal-shell.css --source-map && lessc _src/styles/space-and-power.less dist/css/space-and-power.css --source-map",
+    "build:html": "npm run clean:html && node build-scripts/render-html.js",
+    "build": "npm run copy:assets && npm run build:styles && npm run build:html",
+    "serve": "npm run build && wds --node-resolve --app-index dist/index.html --open --watch"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.30",
+    "cpy-cli": "^4.1.0",
+    "del-cli": "^4.0.1",
+    "less": "^4.1.2",
+    "nunjucks": "^3.2.3"
+  }
+}

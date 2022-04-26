@@ -1,0 +1,52 @@
+@pageTitleBorderWidth: 5px;
+.mixin-page-title() {
+  background-image: linear-gradient(to top, #199fda, #199fda @pageTitleBorderWidth, transparent @pageTitleBorderWidth, transparent);
+  background-color: #053d75;
+
+  &:before,
+  &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      
+      width: 1rem;
+      height: 100%;
+      
+      background-image: linear-gradient(to top, #199fda, #199fda @pageTitleBorderWidth, transparent @pageTitleBorderWidth, transparent);
+      background-color: #053d75;
+  }
+
+  &:before {
+    left: 100%;
+  }
+
+  &:after {
+    right: 100%;
+  }
+}
+
+
+
+.mixin-btn() {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Museo-300;
+    font-weight: normal;
+    border: none;
+    -webkit-appearance: none;
+  
+    &.-is-disabled,
+    &[disabled],
+    *[disabled] button& {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+}
+  
+.mixin-small-btn() {
+    font-size: 1.08333em;
+    padding: 0.5384em 1em 0.3846em 1em;
+    line-height: 1;
+}

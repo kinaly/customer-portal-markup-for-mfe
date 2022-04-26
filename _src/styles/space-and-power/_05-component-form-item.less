@@ -1,0 +1,149 @@
+.mixin-read-only-field() {
+	background-color: #e4ebed;
+	border-width: 0 0 1px 0;
+	border-color: #bfc5c7;
+	display: block;
+}
+
+.mixin-focus-field() {
+	outline: none;
+	border-color: #3bbcf4;
+}
+
+.mixin-base-field() {
+	width: 100%;
+	border: 1px solid #c4c6c6;
+	line-height: 1;
+	padding: 0.25em;
+	min-height: 1.5em;
+	font-size: 1rem;
+
+	&:focus {
+		.mixin-focus-field();
+	}
+}
+
+.form-item {
+	display: block;
+	padding-bottom: 1.5em;
+	
+	&.-with-datepicker-tooltip {
+		min-width: 13.5em;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+    &.-four-digit-field {
+        width: 8em;
+    }
+}
+
+.form-item__default-input,
+.form-item__read-only-field {
+	.mixin-base-field();
+
+    &:not(input):not(textarea),
+    &[disabled],
+    &:disabled {
+		.mixin-read-only-field();
+		min-height: 1.5em;
+	}
+	
+	&:not(input):not(textarea) {
+		padding: 0.3125em;
+		padding-top: ~"calc(0.3125em + 1px)";
+	}
+
+    &[disabled],
+    &:disabled {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	&.error {
+		border-color: #ee6bb0;
+	}
+}
+
+textarea.form-item__default-input {
+    min-height: 5.5em;
+}
+
+.mixin-form-item-select() {
+	width: 100%;
+	padding: 0.25em;
+	border: 1px solid #c4c6c6;
+	max-height: 2em;
+	font-size: 1rem;
+	
+	&[disabled],
+	&:disabled {
+		background-color: #e4ebed;
+		border-color: #bfc5c7;
+	}
+
+	&.error {
+		border-color: #ee6bb0;
+	}
+
+	&:focus {
+		.mixin-focus-field();
+	}
+}
+
+.form-item__select-wrapper {
+  select {
+    .mixin-form-item-select();
+  }
+
+	& :not(select):not(option) {
+		border: 1px solid #c4c6c6;
+		padding: 1px 0.25em 0;
+		.mixin-read-only-field();
+	}
+}
+
+.form-item__default-select {
+  .mixin-form-item-select();
+}
+
+.form-item__datepicker-wrapper {
+	width: 9em;
+	
+	input {
+		.mixin-base-field();
+
+        &.error {
+		    border-color: #ee6bb0;
+	    }
+	}
+}
+
+
+// for checkboxes or radios
+.form-choice-item {
+	display: block;
+}
+
+.form-choice-item__input {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.form-choice-item__label {
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	max-width: calc(~"100% - 18px");
+	line-height: 1.25;
+	padding: 0.25em 0;
+
+	p {
+		margin: 0;
+	}
+}
+
+.form-item__error {
+	color: #dd2c00;
+}
+

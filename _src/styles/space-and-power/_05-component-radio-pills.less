@@ -1,0 +1,101 @@
+.radio-pills {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.radio-pills__item {
+    display: inline-block;
+    position: relative;
+    margin: 0.25em 0.25em 0.25em 0;
+
+    .radio-pills.-stacked & {
+        display: block;
+
+        &:not(:last-child) {
+            margin-bottom: .5em;
+        }
+    }
+}
+
+.radio-pills__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+}
+
+.radio-pills__label {
+    background-color: #f7f8f8;
+    border: 1px solid #b3d0e9;
+    border-radius: 1.25em;
+    color: #666;
+    line-height: 1;
+    padding: 0.75em 1.5em;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+
+    .radio-pills.-stacked & {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding-left: 2.25em;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 1em;
+            width: 1em;
+            height: 1em;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 1px solid #09c;
+        }
+    }
+
+    &:hover {
+        background: #E6F2F8;
+    }
+
+    .radio-pills__input[disabled]:not(:checked) + &,
+    .radio-pills__input:disabled:not(:checked) + & {
+        cursor: not-allowed;
+        background-image: repeating-linear-gradient(45deg, #e5e5e5, #e5e5e5 1px, transparent 1px, transparent 4px);
+        border-color: #d5d5d5;
+
+        &:hover {
+            background-color: #f7f8f8;
+        }
+
+        .radio-pills.-stacked & {
+            &:before {
+                border-color: #b5b5b5;
+            }
+        }
+    }
+
+    .radio-pills__input:checked + & {
+        background-color: #eaf4d8;
+        border-color: #99ca3c;
+        color: darken(#7AA130, 10%);
+
+        .radio-pills.-stacked & {
+            &:before {
+                background-image: radial-gradient(circle, #09c 50%, transparent 55%, transparent);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+
+
+.radio-pills__info {
+    flex: 0 1 40%;
+    font-style: italic;
+    font-weight: bold;
+    color: #000;    
+}

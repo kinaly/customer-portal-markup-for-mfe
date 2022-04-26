@@ -1,0 +1,133 @@
+{% extends "customer-portal-shell.html" %}
+
+{% block head %}<link rel="stylesheet" href="css/space-and-power.css" media="all">{% endblock %}
+
+
+{% block content %}
+<!-- Translated content based on language -->
+<h1 class="page-title">Space and Power order request</h1>
+
+<div class="u-layout -flex -has-gap">
+    <!-- Translated content based on language -->
+    <!-- Ideally this text should come from Episerver, as this is how it is done in other forms. -->
+    <div class="border-only-section u-layout__accent-strong u-margin-bottom-small">
+        <p><strong>Interxion: A Digital Realty Company</strong> provides a wide portfolio of Space and Power products designed and delivered to meet customer’s IT equipment needs.</p>
+        
+        <p><strong>Space</strong><br>
+        Ranging from ½ and Full Cabinets to Cages and Private Suites, Customers have many Space options to select from.</p>
+    
+        <p><strong>Power</strong><br>
+        With a power infrastructure that guarantees 100% uptime, facility redundancy ranges from N+1 all the way to 2N+1.  All sites are generator-backed and UPS battery capacities ensure no interruption in the event of a power outage.</p>
+            
+        <p>Fully conditioned AC and DC power is offered in various circuit sizes, increments, and receptacle/connector types.  Power can be ordered in bulk kW or as individual power circuit pairs.</p>   
+        
+        <p>Digital Realty’s customers rest easy knowing their needs can be met whenever and wherever the demand and their IT equipment is secured, enabled, and protected in hardened facilities.</p>
+    </div>
+
+    <div>
+        <!-- Not sure if it's in scope for this ticket, and I changed its location. -->
+        <!-- I need to confirm with Vanya and Vedran this is ok -->
+        <!-- Otherwise this block is moving at the end of the form -->
+        <h2 class="section-heading">Your sales team</h2>
+        <p>If you want to discuss Space and Power, get in touch with your associated sales team.</p>
+
+        <!-- Not sure where the data comes from -->
+        <dl class="contact-card">
+            <dt class="contact-card__name">Amal Nowak</dt>
+            <dd class="contact-card__role">Sales Contact</dd>
+            <dd class="contact-card__email"><a href="mailto:salesopscontact@interxion.com">salesopscontact@interxion.com</a></dd>
+        </dl>
+
+    </div>
+</div>
+
+<div class="highlight-section u-layout -flex -has-gap">
+    <div>
+        <!-- Translated content based on language -->
+        <h2 class="section-heading">Requestor</h2>
+        <dl>
+            <div class="form-item">
+                <!-- Translated content based on language -->
+                <dt class="default-label">Company</dt>
+                
+                <!-- Data from logged in user -->
+                <dd class="form-item__read-only-field">
+                    Wayne Industries
+                </dd>
+            </div>
+            
+            <div class="form-item">
+                <!-- Translated content based on language -->
+                <dt class="default-label">Requestor</dt>
+                
+                <!-- Data from logged in user -->
+                <dd class="form-item__read-only-field">
+                    Alexis Traore
+                </dd>
+            </div>
+        </dl>
+    </div>
+
+    <div>
+        <!-- Translated content based on language -->
+        <h2 class="section-heading">Reference</h2>
+
+        <label class="form-item">
+            <!-- Translated content based on language -->
+            <span class="default-label">Summary</span>
+
+            <input type="text" class="form-item__default-input">
+        </label>
+    </div>
+</div>
+
+
+<div class="default-section">
+    <!-- Translated content based on language -->
+    <h2 class="section-heading">Order Requet Details</h2>
+
+    <div class="inner-section">
+        <div>
+            <!-- Translated content based on language -->
+            <span class="default-label">Product Type</span>
+            <ul class="radio-pills">
+                <li class="radio-pills__item">
+                    <label>
+                        <input type="radio" name="productTypeSelection" class="radio-pills__input" value="space">
+                        <!-- Translated content based on language -->
+                        <span class="radio-pills__label">Space</span>
+                    </label>
+                </li>
+
+                <li class="radio-pills__item">
+                    <label>
+                        <input type="radio" name="productTypeSelection" class="radio-pills__input" value="power">
+                        <!-- Translated content based on language -->
+                        <span class="radio-pills__label">Power</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <label class="form-item -four-digit-field">
+            <!-- Translated content based on language -->
+            <span class="default-label">Site</span>
+
+            <!-- Pulled data based on user's authorisation -->
+            <!-- The select is disabled by default and is enabled upon choosing the type of product -->
+            <select class="form-item__default-select">
+                <option value="Select a site">Choose</option>
+                <option value="Site 1">Site 1</option>
+                <option value="Site 2">Site 2</option>
+            </select>
+        </label>
+
+        <label class="form-item">
+            <!-- Translated content based on language -->
+            <span class="default-label">Description</span>
+            
+            <textarea class="form-item__default-input"></textarea>
+        </label>
+    </div>
+</div>
+{% endblock %}

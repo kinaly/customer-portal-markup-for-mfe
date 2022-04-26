@@ -1,0 +1,405 @@
+/* Portal Skeleton */
+/* --------------- */
+
+.page {
+    min-height: 100%;
+  
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  
+    grid-template-columns: 100%;
+    
+    // need to explicitly set a width for ie11 to properly deal with the grid layout
+    -ms-grid-columns: 100%;
+}
+  
+.content-width {
+    width: @page-width;
+    margin: 0 auto;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+        width: 100%;
+        }
+    }
+}
+  
+ 
+
+.top-bar {
+    border-bottom: 1px solid #cbeaf5;
+}
+
+.top-bar__inner {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: 650px) {
+        flex-direction: column;
+        align-items: flex-start;
+        }
+
+        @media only screen and (max-width: 450px) {
+        font-size: 0.8333em;
+        }
+    }
+}
+
+
+
+.header-links {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	letter-spacing: -0.25em; // to remove space between inline-block elements
+}
+
+.header-links__item {
+    display: inline-block;
+    letter-spacing: normal;
+    border: 1px solid #cbeaf5;
+    border-width: 0 1px;
+
+    &:first-child:not(:only-child) {
+        border-width: 0 0 0 1px;
+    }
+
+    &.-is-marketplace {
+        display: none;
+
+        & when (@responsive = true) {
+            @media only screen and (max-width: 650px) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.header-links__item-link {
+	display: block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	
+	&:hover {
+		background-color: lighten(#cbeaf5, 20%);
+		color: darken(#09c, 7%);
+	}
+
+	.header-links__item.-is-marketplace & {
+		color: #d87e0c;
+	}
+}
+  
+
+
+.page-header {
+    background-color: #FFF;
+    border-bottom: 1px solid #fff; // to prevent some margin-collapse
+
+    // need to explicitly position the element on the grid for ie11 to properly display the layout
+    -ms-grid-row: 1;
+}
+
+.page-header__inner {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: 850px) {
+        display: block;
+        }
+    }
+}
+
+.page-header__areas {
+    display: inline-block;
+    vertical-align: middle;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: 850px) {
+        display: block;
+        }
+    }
+}
+
+.page-header__logo-area {
+    white-space: nowrap;
+    max-width: 100%;
+
+    text-decoration: none;
+}
+
+.page-header__logo {
+    display: inline-block;
+    vertical-align: middle;
+
+    &:not(.login-outer-area__portal-name) when (@responsive = true) {
+        @media only screen and (max-width: 530px) {
+        width: 150px;
+    }
+}
+
+    &:not(.login-outer-area__portal-name) when (@responsive = true) {
+        @media only screen and (max-width: 440px) {
+        width: 110px;
+        }
+    }
+}
+
+.page-header__portal-name {
+    font-family: Museo-300;
+    font-size: 3em;
+    color: #3bbcf4;
+    font-weight: normal;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.25em;
+
+    &:not(.login-outer-area__portal-name) when (@responsive = true) {
+        @media only screen and (max-width: 530px) {
+            font-size: 2.5em;
+        }
+    }
+
+    &:not(.login-outer-area__portal-name) when (@responsive = true) {
+        @media only screen and (max-width: 440px) {
+           font-size: 1.8em;
+        }
+    }
+}
+
+.page-header__content-area {
+    text-align: right;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: 850px) {
+        text-align: left;
+        }
+    }
+}
+
+
+
+.login-area {
+	text-align: right;
+
+	& when (@responsive = true) {
+    	@media only screen and (max-width: 650px) {
+    		text-align: left;
+    	}
+    }
+}
+
+.login-area__greetings {
+	& when (@responsive = true) {
+    	@media only screen and (max-width: 440px) {
+    		display: none;
+    	}
+    }
+}
+
+.login-area__actions {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 0.5em;
+	display: inline-block;
+	border-left: 1px solid #333;
+}
+
+.login-area__action {
+	display: inline-block;
+	
+	&:first-child {
+		padding-left: 1em;
+	}
+	
+	& + & {
+		padding-left: 0.5em;
+		
+		&:before {
+			content: "-";
+			margin-right: 0.5em;
+		}
+	}
+}
+
+
+
+.page-footer {
+    // need to explicitly position the element on the grid for ie11 to properly display the layout
+    -ms-grid-row: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: #003d79;
+    color: #fff;
+
+    a:not(.small-btn) {
+        color: #7dd4fa;
+        text-decoration: none;
+
+        &:hover {
+            color: lighten(#7dd4fa, 10%);
+            text-decoration: underline;
+        }
+    }
+
+    a[href^="tel:"],
+    a[href^="tel:"]:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+  
+.page-footer__inner {
+    padding: 1em 0;
+    padding-left: ~"calc(@{main-sidebar-width} + 2em)";
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+        padding: 1em;
+        }
+    }
+}
+
+.page-footer__secondary-nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 0 -1.5em;
+    padding-bottom: 0;
+
+    & > * {
+        flex: 1 1 ~"calc(600px * 999 - 100% * 999)";
+        margin: 0 1.5em 1em 1.5em;
+    }
+}
+
+.page-footer__separated-column {
+    border-left: 1px solid #d8d8d8;
+    padding-left: 1em;
+}
+
+.page-footer__heading {
+    font-family: Museo-300;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+
+.page-footer__inline-list.page-footer__inline-list, // to override .from-wysiwyg-editor rules
+.page-footer__inline-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    ul {
+        margin: 0; // to override .from-wysiwyg-editor rules
+    }
+
+    li {
+        display: inline;
+        padding: 0 0.75em 0 1em;
+        
+        &:first-child {
+        padding-left: 0;
+        }
+    }
+
+    li + li {
+        border-left: 1px solid lightgrey;
+    }
+}
+
+
+
+.footer-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links__item {
+    display: block;
+}
+
+
+
+
+.page-body {
+    background-image: linear-gradient(to bottom, #053d75, #053d75 61px, transparent 61px, transparent); // for browsers that don't support CSS variables
+    background-image: linear-gradient(to bottom, #053d75, #053d75 var(--background-stripe-width, 61px), transparent var(--background-stripe-width, 61px), transparent);
+    background-color: #f7f7f7;
+    padding-bottom: 1em;
+    min-width: @page-width;
+
+    // need to explicitly position the element on the grid for ie11 to properly display the layout
+    -ms-grid-row: 2;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+        min-width: 100%;
+        }
+    }
+}
+  
+  
+.page-body__content {
+    padding: 10px;
+    overflow: visible;
+  
+    .page-body.-with-fading-shadow & {
+      min-height: 800px;
+      padding: 10px 20px 0;
+    }
+  
+    & when (@responsive = true) {
+      @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+}
+  
+  
+.main-content {
+    background-color: #FFF;
+    padding: 0 1rem 1rem 1rem;
+    float: right;
+    width: @main-content-width;
+    position: relative;
+      
+    // only for NotFound.cshtml and Error.cshtml so that the content is full width when there is no menu
+    .main-sidebar:empty ~ & {
+    width: 100%;
+    }
+
+    & when (@responsive = true) {
+    @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+        width: 100%;
+    }
+    }
+}
+  
+  
+.main-sidebar {
+    float: left;
+    width: @main-sidebar-width;
+
+    & when (@responsive = true) {
+        @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
+            width: 100%;
+        }
+    }
+}
+  

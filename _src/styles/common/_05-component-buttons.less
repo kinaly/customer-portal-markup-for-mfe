@@ -1,0 +1,45 @@
+.small-btn {
+	background-color: #99ca3c;
+	color: #fff;
+
+  .mixin-btn();
+  .mixin-small-btn();
+  
+  &:hover {
+  	color: #fff;
+  	background-color: darken(#99ca3c, 4%);
+  }
+}
+
+.secondary-small-btn {
+  background-color: #cbeaf5;
+	color: #333;
+
+  .mixin-btn();
+  .mixin-small-btn();
+  
+  &:hover {
+  	color: #333;
+  	background-color: darken(#cbeaf5, 4%);
+  }
+}
+
+
+
+.fat-btn {
+	background-color: #09c;
+	color: #fff;
+	font-size: 1.125rem;
+	font-weight: bold;
+	padding: 0.5em;
+	min-width: 13em;
+	text-align: center;
+	box-sizing: border-box;
+	
+	&:hover {
+  	color: #fff;
+  	background-color: darken(#09c, 3%);
+  }
+
+  .mixin-btn();
+}

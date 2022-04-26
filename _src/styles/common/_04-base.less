@@ -1,0 +1,73 @@
+html {
+    /* default */
+    font-size: 100%;
+    box-sizing: border-box;
+    height: 100%;   
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 0.75em; /* equivalent to 12px if base font-size is the default 16px */
+    line-height: 1.5;
+    height: 100%;
+    
+    min-height: 800px; /* to prevent IE to collapse the login form "under" the footer if the window has a very low height  */
+}
+
+p {
+    margin-top: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: #0099cc;
+
+    &:hover {
+        color: #428bca;
+      }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+svg path {
+    fill: inherit;
+}
+
+/* reset all hn elements to 1em */
+/* to prevent use of a tag for what it looks rather than its semantic */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+
+dl, dt, dd {
+    margin: 0;
+}
+
+
+address {
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo-300';
+    src: url('../fonts/museo-300/333F1E_0_0.eot');
+    src: url('../fonts/museo-300/333F1E_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/museo-300/333F1E_0_0.woff2') format('woff2'), url('../fonts/museo-300/333F1E_0_0.woff') format('woff'), url('fonts/museo-300/333F1E_0_0.ttf') format('truetype');}
+
+.museo-300 { font-family: Museo-300; }
