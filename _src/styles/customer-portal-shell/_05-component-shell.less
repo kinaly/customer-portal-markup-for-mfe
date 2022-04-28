@@ -273,13 +273,15 @@
 .page-footer__secondary-nav {
     display: flex;
     flex-wrap: wrap;
+    gap: 1.5em;
 
-    margin: 0 -1.5em;
-    padding-bottom: 0;
+    margin: 0;
+    padding: 0 10px 0 0;
 
     & > * {
         flex: 1 1 ~"calc(600px * 999 - 100% * 999)";
-        margin: 0 1.5em 1em 1.5em;
+        max-width: 100%;
+        margin-bottom: 1em;
     }
 }
 
@@ -356,50 +358,29 @@
   
 .page-body__content {
     padding: 10px;
-    overflow: visible;
-  
-    .page-body.-with-fading-shadow & {
-      min-height: 800px;
-      padding: 10px 20px 0;
-    }
-  
-    & when (@responsive = true) {
-      @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
-        display: flex;
-        flex-direction: column-reverse;
-      }
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
   
   
 .main-content {
     background-color: #FFF;
     padding: 0 1rem 1rem 1rem;
-    float: right;
-    width: @main-content-width;
+    flex: 999 0 0;
+    order: 2;
+    min-width: ~"min(@{main-content-width}, 100%)";
     position: relative;
       
     // only for NotFound.cshtml and Error.cshtml so that the content is full width when there is no menu
     .main-sidebar:empty ~ & {
     width: 100%;
     }
-
-    & when (@responsive = true) {
-    @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
-        width: 100%;
-    }
-    }
 }
   
   
 .main-sidebar {
-    float: left;
-    width: @main-sidebar-width;
-
-    & when (@responsive = true) {
-        @media only screen and (max-width: unit((unit(@page-width) + 20),px)) {
-            width: 100%;
-        }
-    }
+    flex: 1 0 0;
+    min-width: @main-sidebar-width;
 }
   
